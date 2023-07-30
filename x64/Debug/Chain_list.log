@@ -1,2 +1,3 @@
 ﻿  Chlist_sub.c
+D:\上课\C语言\c语言练习\Chain_list\Chain_list\Chlist_sub.c(100): warning C4715: “Find_Chlist”: 不是所有的控件路径都返回值
   Chain_list.vcxproj -> D:\上课\C语言\c语言练习\Chain_list\x64\Debug\Chain_list.exe

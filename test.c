@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"Chlist.h"
+//增删
 void test()
 {
 	Chlist_node* phead = NULL;
@@ -8,10 +9,36 @@ void test()
 	//Push_fornt_Chlist(&phead, 3);
 	//Print_Chlist(phead);
 	Push_back_Chlist(&phead, 4);
+	Push_back_Chlist(&phead, 3);
+	Push_back_Chlist(&phead, 2);
+	Print_Chlist(phead);
+	Pop_front_Chlist(&phead);
+	Print_Chlist(phead);
+	Pop_back_Chlist(&phead);
+	Print_Chlist(phead);
+}
+void test2()
+{
+	Chlist_node* phead = NULL;
+	Push_back_Chlist(&phead, 4);
+	Push_back_Chlist(&phead, 3);
+	Push_back_Chlist(&phead, 2);
+	Chlist_node* tag = Find_Chlist(phead, 3);
+	push_pos_Chlist(&phead, tag, 5);
+	Print_Chlist(phead);
+}
+//Push_pos_Chlist各种情况
+void test3()
+{
+	Chlist_node* phead = NULL;
+	push_pos_Chlist(&phead, NULL, 2);
+	push_pos_Chlist(&phead, phead, 3);
+	Chlist_node* tag = Find_Chlist(phead, 2);
+	push_pos_Chlist(&phead, tag, 5);
 	Print_Chlist(phead);
 }
 int main()
 {
-	test();
+	test3();
 	return 0;
 }

@@ -18,3 +18,11 @@ void Push_fornt_Chlist(Chlist_node** pphead, DATATYPE num);
 //后插
 void Push_back_Chlist(Chlist_node** pphead, DATATYPE num);
 //前删
+void Pop_front_Chlist(Chlist_node** pphead);
+//后删
+void Pop_back_Chlist(Chlist_node** pphead);
+//查找
+Chlist_node* Find_Chlist(Chlist_node* phead, DATATYPE num);
+// 单链表在pos位置之后插入x
+void push_pos_Chlist(Chlist_node** pphead, Chlist_node* pos, DATATYPE num);
+//单链表删除pos位置之后的值
