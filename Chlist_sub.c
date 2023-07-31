@@ -2,6 +2,7 @@
 #include"Chlist.h"
 void Print_Chlist(Chlist_node* phead)
 {
+	assert(phead);
 	Chlist_node* tail = phead;//这里没有哨兵位，每个数据都有用
 	while (tail!=NULL)
 	{
@@ -25,6 +26,7 @@ Chlist_node*  Creat_Chlist(DATATYPE num)
 }
 void Push_fornt_Chlist(Chlist_node** pphead, DATATYPE num)
 {
+	assert(pphead);
 	Chlist_node* newnode = Creat_Chlist(num);
 #if 0
 	//链表不为空
@@ -37,6 +39,7 @@ void Push_fornt_Chlist(Chlist_node** pphead, DATATYPE num)
 }
 void Push_back_Chlist(Chlist_node** pphead, DATATYPE num)
 {
+	assert(pphead);
 	Chlist_node* tail = Creat_Chlist(num);
 	//为空
 	if (*pphead == NULL)
@@ -55,6 +58,7 @@ void Push_back_Chlist(Chlist_node** pphead, DATATYPE num)
 }
 void Pop_front_Chlist(Chlist_node** pphead)
 {
+	assert(pphead);
 	assert(*pphead);//防止为空
 	Chlist_node* newnode = (*pphead)->next;;//创建一个新的来存头（地址）
 	free(*pphead);
@@ -63,6 +67,7 @@ void Pop_front_Chlist(Chlist_node** pphead)
 //重要，反复学习 
 void Pop_back_Chlist(Chlist_node** pphead)
 {
+	assert(pphead);
 	assert(*pphead);//防止为空
 	if ((*pphead)->next == NULL)
 		//一个
@@ -85,8 +90,9 @@ void Pop_back_Chlist(Chlist_node** pphead)
 //返回当前节点的地址，即前一个节点的next
 Chlist_node* Find_Chlist(Chlist_node* phead, DATATYPE num)
 {
+	assert(phead);
 	Chlist_node* cur = phead;
-	while (cur->next != NULL)
+	while (cur != NULL)//cur->next不能这样，会少遍历一个的
 	{
 		if (cur->data != num)
 		{
@@ -97,31 +103,64 @@ Chlist_node* Find_Chlist(Chlist_node* phead, DATATYPE num)
 			return cur;
 		}
 	}
+	return NULL;
 }
 void push_pos_Chlist(Chlist_node** pphead, Chlist_node* pos, DATATYPE num)
 {
-	Chlist_node* cur = *pphead;
+	assert(pphead);
+	assert(pos);
+	Chlist_node* pre = *pphead;
 	Chlist_node* des = Creat_Chlist(num);
 	//假设在开头
-	if (cur == NULL)
+	if (pos==*pphead)
 	{
-		*pphead = des;
+		Push_fornt_Chlist(pphead,num);
 	}
 	else
 	{
-		while (cur->next != NULL && cur !=pos )
+		while ( pre->next !=pos )
 		{
-			cur = cur->next;
+			pre = pre->next;
 		}
-		if (cur->next != NULL)
-		{	//假设在中间
-			Chlist_node* temp = pos->next;
-			pos->next = des;
-			des->next = temp;
-		}
-		else
-		{
-			pos->next = des;
-		}
+			//假设在中间
+			pre->next = des;
+			des->next = pos;
+			//无法实现尾插
 	}
+}
+void push_posafter_Chlist(Chlist_node* pos, DATATYPE num)
+{
+	assert(pos);
+	Chlist_node* des = Creat_Chlist(num);
+	des->next = pos->next;
+	pos->next = des;
+}
+void pop_pos_Chlist(Chlist_node** pphead, Chlist_node* pos)
+{
+	assert(pphead);
+	assert(*pphead);
+	assert(pos);
+	if (pos == *pphead)
+	{
+		*pphead = pos->next;
+		free(pos);
+	}
+	else
+	{
+		Chlist_node* pre = *pphead;
+		while (pre->next != pos)
+		{
+			pre = pre->next;
+		}
+		pre->next = pos->next;
+		free(pos);
+	}
+}
+void pop_posafter_Chlist(Chlist_node* pos)
+{
+	assert(pos);
+	Chlist_node* temp = pos->next;
+	pos->next = temp->next;
+	free(temp);
+	temp = NULL;
 }

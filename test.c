@@ -31,11 +31,17 @@ void test2()
 void test3()
 {
 	Chlist_node* phead = NULL;
-	push_pos_Chlist(&phead, NULL, 2);
-	push_pos_Chlist(&phead, phead, 3);
-	Chlist_node* tag = Find_Chlist(phead, 2);
+	Push_back_Chlist(&phead, 4);
+	Push_back_Chlist(&phead, 3);
+	Chlist_node* tag = Find_Chlist(phead, 3);
 	push_pos_Chlist(&phead, tag, 5);
+	 tag = Find_Chlist(phead, 3);
+	push_posafter_Chlist(tag, 10);
 	Print_Chlist(phead);
+	tag = Find_Chlist(phead, 4);
+	pop_posafter_Chlist(tag);
+	Print_Chlist(phead);
+
 }
 int main()
 {
