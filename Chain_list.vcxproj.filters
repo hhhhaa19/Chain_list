@@ -26,5 +26,11 @@
     <ClCompile Include="test.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Chain_practice.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test_for_topic.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

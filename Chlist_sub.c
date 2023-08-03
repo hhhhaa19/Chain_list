@@ -164,3 +164,14 @@ void pop_posafter_Chlist(Chlist_node* pos)
 	free(temp);
 	temp = NULL;
 }
+void Destroy_Chlist(Chlist_node* phead)
+{
+	Chlist_node* cur = phead;
+	Chlist_node* pre = phead;
+	while (cur != NULL)
+	{
+		pre = cur;
+		cur = cur->next;
+		free(pre);
+	}
+}

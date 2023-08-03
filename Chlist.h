@@ -8,6 +8,12 @@ typedef struct Chlist_node
 	DATATYPE data;
 	struct Chlist_node* next;
 }Chlist_node;
+
+struct ListNode
+{
+	int val;
+	struct ListNode* next;
+};
 //总体思路就是
 //打印
 void Print_Chlist(Chlist_node* phead);
@@ -31,3 +37,12 @@ void push_posafter_Chlist( Chlist_node* pos, DATATYPE num);
 void pop_pos_Chlist(Chlist_node** pphead, Chlist_node* pos);
 //单链表在pos位置之前删除
 void pop_posafter_Chlist( Chlist_node* pos);
+//销毁链表
+void Destroy_Chlist(Chlist_node* phead);
+
+
+
+//Chlist_practice
+struct ListNode* removeElements(struct ListNode* head, int val);
+struct ListNode* middleNode(struct ListNode* head);
+struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2);

@@ -130,8 +130,10 @@
     <ClInclude Include="Chlist.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Chain_practice.c" />
     <ClCompile Include="Chlist_sub.c" />
     <ClCompile Include="test.c" />
+    <ClCompile Include="test_for_topic.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

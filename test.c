@@ -41,10 +41,11 @@ void test3()
 	tag = Find_Chlist(phead, 4);
 	pop_posafter_Chlist(tag);
 	Print_Chlist(phead);
+	Destroy_Chlist(phead);
 
 }
-int main()
-{
-	test3();
-	return 0;
-}
+//int main()
+//{
+//	test3();
+//	return 0;
+//}
