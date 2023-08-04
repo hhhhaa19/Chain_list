@@ -1,2 +1,5 @@
 ﻿  Chain_practice.c
+  test_for_topic.c
+  正在生成代码...
+D:\上课\C语言\c语言练习\Chain_list\Chain_list\Chain_practice.c(304): warning C4715: “getIntersectionNode”: 不是所有的控件路径都返回值
   Chain_list.vcxproj -> D:\上课\C语言\c语言练习\Chain_list\x64\Debug\Chain_list.exe

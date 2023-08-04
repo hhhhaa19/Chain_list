@@ -32,6 +32,6 @@ int main()
 	/*struct ListNode* head = removeElements(node1, 2);*/
 	/*struct ListNode* head = middleNode(node1);*/
 
-	struct ListNode* head = mergeTwoLists(node1, list1);
+	struct ListNode* head = getIntersectionNode(node1, list1);
 	return 0;
 }

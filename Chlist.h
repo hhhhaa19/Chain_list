@@ -46,3 +46,4 @@ void Destroy_Chlist(Chlist_node* phead);
 struct ListNode* removeElements(struct ListNode* head, int val);
 struct ListNode* middleNode(struct ListNode* head);
 struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2);
+struct ListNode* getIntersectionNode(struct ListNode* headA, struct ListNode* headB);

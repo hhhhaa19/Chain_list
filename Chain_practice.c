@@ -166,7 +166,7 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2)
 	return head;
 }
 //带哨兵位
-struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2)
+struct ListNode* mergeTwoLists2(struct ListNode* list1, struct ListNode* list2)
 {
 	if (list1 == NULL)
 		return list2;
@@ -198,4 +198,136 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2)
 	head = head->next;
 	free(temp);
 	return head;
+}
+//对于一个链表，请设计一个时间复杂度为O(n),额外空间复杂度为O(1)的算法，判断其是否为回文结构
+int chkPalindrome(struct ListNode* head)
+{
+	struct ListNode* mid = middleNode(head);
+	struct ListNode* rmid = reverseList(mid);
+	//从中间反转后半段，然后比较
+	while (rmid != NULL)
+	{
+		if (head->val != mid->val)
+		{
+			return -1;
+		}
+		head = head->next;
+		rmid = rmid->next;
+	}
+	return 0;
+
+}
+//现有一链表的头指针 ListNode* pHead，给一定值x，编写一段代码将所有小于x的结点排在其余结点之前，且不能改变原来的数据顺序，返回重新排列后的链表的头指针。
+struct ListNode* partition(struct ListNode* pHead, int x)
+{
+	struct ListNode* lhead = (struct ListNode*)malloc(sizeof(struct ListNode));//记录较小数
+	struct ListNode* ghead = (struct ListNode*)malloc(sizeof(struct ListNode));//记录较大数
+	struct ListNode* cur = pHead;//用于遍历
+	//用于保存，后续释放
+	struct ListNode* newhead = lhead;
+	struct ListNode* newhead2 = ghead;
+	while (cur != NULL)
+	{
+		if (cur->val >= x)
+		{
+			ghead->next = cur;
+			ghead = ghead->next;
+		}
+		else
+		{
+			lhead->next = cur;
+			lhead = lhead->next;
+		}
+		cur = cur->next;
+	}
+	ghead ->next= NULL;
+	lhead->next = newhead2->next;
+	struct ListNode* ret = newhead->next;
+	
+	free(newhead2);
+	free(newhead);
+	return ret;
+}
+//给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。
+//思路：先通过尾节点判断是否相交，并计算出长度，想办法让两者从同一长度出发
+struct ListNode* getIntersectionNode(struct ListNode* headA, struct ListNode* headB)
+{
+	if (headA == NULL || headB == NULL)
+		return NULL;
+	struct ListNode* tailA = headA;
+	struct ListNode* tailB = headB;
+	int lena = 1;
+	int lenb = 1;
+	while(tailA->next!= NULL)
+	{
+		tailA = tailA->next;
+		lena++;
+	}
+	while (tailB->next!= NULL)
+	{
+		tailB = tailB->next;
+		lenb++;
+	}
+	if (tailA == tailB)
+	{
+		int advence = 0;
+		struct ListNode* ghead = NULL;
+		struct ListNode* lhead = NULL;
+		if (lena > lenb)
+		{
+			advence = lena - lenb;
+			ghead = headA;
+			lhead = headB;
+		}
+		else
+		{
+			advence = lenb - lena;
+			ghead = headB;
+			lhead = headA;
+		}
+		while (advence--)
+		{
+			ghead = ghead->next;
+		}
+		//while (ghead != NULL)
+		//{
+		//	if (ghead == lhead)
+		//	{
+		//		return ghead;
+		//	}
+		//	lhead = lhead->next;
+		//	ghead = ghead->next;
+		//}
+		//这段在部分编译器跑不过认为有部分不返回值
+		while (ghead != lhead)
+		{
+			lhead = lhead->next;
+			ghead = ghead->next;
+		}
+		return ghead;
+	}
+	else
+	{
+		return NULL;
+	} 
+}
+
+//给你一个链表的头节点 head ，判断链表中是否有环。
+//思路：快慢指针
+int hasCycle(struct ListNode* head)
+{
+	if (head == NULL)
+		return 0;
+	struct ListNode* slow = head;
+	struct ListNode* fast = head;
+	while (fast!=NULL&&fast->next!=NULL)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
+		{
+			return 1;
+		}
+	}
+	return 0;
 }
