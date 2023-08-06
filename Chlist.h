@@ -13,6 +13,13 @@ struct ListNode
 {
 	int val;
 	struct ListNode* next;
+
+};
+struct Node
+{
+	int val;
+	struct Node* next;
+	struct Node* random;
 };
 //总体思路就是
 //打印

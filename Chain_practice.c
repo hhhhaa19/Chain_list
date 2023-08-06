@@ -1,8 +1,8 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿#define _CRT_SECURE_NO_WARNINGS 1
 #include"Chlist.h"
-// ÒÆ³ıÁ´±íÔªËØ
-//¸øÄãÒ»¸öÁ´±íµÄÍ·½Úµã head ºÍÒ»¸öÕûÊı val £¬
-//ÇëÄãÉ¾³ıÁ´±íÖĞËùÓĞÂú×ã Node.val == val µÄ½Úµã£¬²¢·µ»Ø ĞÂµÄÍ·½Úµã
+// ç§»é™¤é“¾è¡¨å…ƒç´ 
+//ç»™ä½ ä¸€ä¸ªé“¾è¡¨çš„å¤´èŠ‚ç‚¹ head å’Œä¸€ä¸ªæ•´æ•° val ï¼Œ
+//è¯·ä½ åˆ é™¤é“¾è¡¨ä¸­æ‰€æœ‰æ»¡è¶³ Node.val == val çš„èŠ‚ç‚¹ï¼Œå¹¶è¿”å› æ–°çš„å¤´èŠ‚ç‚¹
 
 struct ListNode* removeElements(struct ListNode* head, int val)
 {
@@ -33,18 +33,18 @@ struct ListNode* removeElements(struct ListNode* head, int val)
 	return head;
 }
 
-//¸øÄãµ¥Á´±íµÄÍ·½Úµã head £¬ÇëÄã·´×ªÁ´±í£¬²¢·µ»Ø·´×ªºóµÄÁ´±í¡£
-//·½·¨Ò»£ºÈıÖ¸Õë+Í·²å
+//ç»™ä½ å•é“¾è¡¨çš„å¤´èŠ‚ç‚¹ head ï¼Œè¯·ä½ åè½¬é“¾è¡¨ï¼Œå¹¶è¿”å›åè½¬åçš„é“¾è¡¨ã€‚
+//æ–¹æ³•ä¸€ï¼šä¸‰æŒ‡é’ˆ+å¤´æ’
 struct ListNode* reverseList(struct ListNode* head) 
 {
 	if (head != NULL&&head->next!=NULL)
 	{
-		struct ListNode* newcur = NULL;//ĞÂÁ´±íµÄºóÒ»¸ö½Úµã
-		struct ListNode* cur = head->next;//±éÀúÀÏÁ´±íµÄÃ¿¸ö½Úµã
-		struct ListNode* newhead = NULL;//ĞÂÍ·
+		struct ListNode* newcur = NULL;//æ–°é“¾è¡¨çš„åä¸€ä¸ªèŠ‚ç‚¹
+		struct ListNode* cur = head->next;//éå†è€é“¾è¡¨çš„æ¯ä¸ªèŠ‚ç‚¹
+		struct ListNode* newhead = NULL;//æ–°å¤´
 		while (cur != NULL)
 		{
-			//µÚÒ»¸ö
+			//ç¬¬ä¸€ä¸ª
 			if (newhead == NULL)
 			{
 				newhead = cur;
@@ -69,8 +69,8 @@ struct ListNode* reverseList(struct ListNode* head)
 }
 
 
-//¸øÄãµ¥Á´±íµÄÍ·½áµã head £¬ÇëÄãÕÒ³ö²¢·µ»ØÁ´±íµÄÖĞ¼ä½áµã¡£
-//Èç¹ûÓĞÁ½¸öÖĞ¼ä½áµã£¬Ôò·µ»ØµÚ¶ş¸öÖĞ¼ä½áµã¡£
+//ç»™ä½ å•é“¾è¡¨çš„å¤´ç»“ç‚¹ head ï¼Œè¯·ä½ æ‰¾å‡ºå¹¶è¿”å›é“¾è¡¨çš„ä¸­é—´ç»“ç‚¹ã€‚
+//å¦‚æœæœ‰ä¸¤ä¸ªä¸­é—´ç»“ç‚¹ï¼Œåˆ™è¿”å›ç¬¬äºŒä¸ªä¸­é—´ç»“ç‚¹ã€‚
 struct ListNode* middleNode(struct ListNode* head) 
 {
 	struct ListNode* slow = head;
@@ -84,7 +84,7 @@ struct ListNode* middleNode(struct ListNode* head)
 }
 
 
-//ÊäÈëÒ»¸öÁ´±í£¬Êä³ö¸ÃÁ´±íÖĞµ¹ÊıµÚk¸ö½áµã¡£
+//è¾“å…¥ä¸€ä¸ªé“¾è¡¨ï¼Œè¾“å‡ºè¯¥é“¾è¡¨ä¸­å€’æ•°ç¬¬kä¸ªç»“ç‚¹ã€‚
 struct ListNode* FindKthToTail(struct ListNode* pListHead, int k)
 {
 	if (pListHead == NULL)
@@ -113,8 +113,8 @@ struct ListNode* FindKthToTail(struct ListNode* pListHead, int k)
 	}
 }
 
-//½«Á½¸öÉıĞòÁ´±íºÏ²¢ÎªÒ»¸öĞÂµÄ ÉıĞò Á´±í²¢·µ»Ø¡£ĞÂÁ´±íÊÇÍ¨¹ıÆ´½Ó¸ø¶¨µÄÁ½¸öÁ´±íµÄËùÓĞ½Úµã×é³ÉµÄ¡£ 
-//²»´øÉÚ±øÎ»
+//å°†ä¸¤ä¸ªå‡åºé“¾è¡¨åˆå¹¶ä¸ºä¸€ä¸ªæ–°çš„ å‡åº é“¾è¡¨å¹¶è¿”å›ã€‚æ–°é“¾è¡¨æ˜¯é€šè¿‡æ‹¼æ¥ç»™å®šçš„ä¸¤ä¸ªé“¾è¡¨çš„æ‰€æœ‰èŠ‚ç‚¹ç»„æˆçš„ã€‚ 
+//ä¸å¸¦å“¨å…µä½
 struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2)
 {
 	if (list1 == NULL)
@@ -165,7 +165,7 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2)
 	}
 	return head;
 }
-//´øÉÚ±øÎ»
+//å¸¦å“¨å…µä½
 struct ListNode* mergeTwoLists2(struct ListNode* list1, struct ListNode* list2)
 {
 	if (list1 == NULL)
@@ -199,12 +199,12 @@ struct ListNode* mergeTwoLists2(struct ListNode* list1, struct ListNode* list2)
 	free(temp);
 	return head;
 }
-//¶ÔÓÚÒ»¸öÁ´±í£¬ÇëÉè¼ÆÒ»¸öÊ±¼ä¸´ÔÓ¶ÈÎªO(n),¶îÍâ¿Õ¼ä¸´ÔÓ¶ÈÎªO(1)µÄËã·¨£¬ÅĞ¶ÏÆäÊÇ·ñÎª»ØÎÄ½á¹¹
+//å¯¹äºä¸€ä¸ªé“¾è¡¨ï¼Œè¯·è®¾è®¡ä¸€ä¸ªæ—¶é—´å¤æ‚åº¦ä¸ºO(n),é¢å¤–ç©ºé—´å¤æ‚åº¦ä¸ºO(1)çš„ç®—æ³•ï¼Œåˆ¤æ–­å…¶æ˜¯å¦ä¸ºå›æ–‡ç»“æ„
 int chkPalindrome(struct ListNode* head)
 {
 	struct ListNode* mid = middleNode(head);
 	struct ListNode* rmid = reverseList(mid);
-	//´ÓÖĞ¼ä·´×ªºó°ë¶Î£¬È»ºó±È½Ï
+	//ä»ä¸­é—´åè½¬ååŠæ®µï¼Œç„¶åæ¯”è¾ƒ
 	while (rmid != NULL)
 	{
 		if (head->val != mid->val)
@@ -217,13 +217,13 @@ int chkPalindrome(struct ListNode* head)
 	return 0;
 
 }
-//ÏÖÓĞÒ»Á´±íµÄÍ·Ö¸Õë ListNode* pHead£¬¸øÒ»¶¨Öµx£¬±àĞ´Ò»¶Î´úÂë½«ËùÓĞĞ¡ÓÚxµÄ½áµãÅÅÔÚÆäÓà½áµãÖ®Ç°£¬ÇÒ²»ÄÜ¸Ä±äÔ­À´µÄÊı¾İË³Ğò£¬·µ»ØÖØĞÂÅÅÁĞºóµÄÁ´±íµÄÍ·Ö¸Õë¡£
+//ç°æœ‰ä¸€é“¾è¡¨çš„å¤´æŒ‡é’ˆ ListNode* pHeadï¼Œç»™ä¸€å®šå€¼xï¼Œç¼–å†™ä¸€æ®µä»£ç å°†æ‰€æœ‰å°äºxçš„ç»“ç‚¹æ’åœ¨å…¶ä½™ç»“ç‚¹ä¹‹å‰ï¼Œä¸”ä¸èƒ½æ”¹å˜åŸæ¥çš„æ•°æ®é¡ºåºï¼Œè¿”å›é‡æ–°æ’åˆ—åçš„é“¾è¡¨çš„å¤´æŒ‡é’ˆã€‚
 struct ListNode* partition(struct ListNode* pHead, int x)
 {
-	struct ListNode* lhead = (struct ListNode*)malloc(sizeof(struct ListNode));//¼ÇÂ¼½ÏĞ¡Êı
-	struct ListNode* ghead = (struct ListNode*)malloc(sizeof(struct ListNode));//¼ÇÂ¼½Ï´óÊı
-	struct ListNode* cur = pHead;//ÓÃÓÚ±éÀú
-	//ÓÃÓÚ±£´æ£¬ºóĞøÊÍ·Å
+	struct ListNode* lhead = (struct ListNode*)malloc(sizeof(struct ListNode));//è®°å½•è¾ƒå°æ•°
+	struct ListNode* ghead = (struct ListNode*)malloc(sizeof(struct ListNode));//è®°å½•è¾ƒå¤§æ•°
+	struct ListNode* cur = pHead;//ç”¨äºéå†
+	//ç”¨äºä¿å­˜ï¼Œåç»­é‡Šæ”¾
 	struct ListNode* newhead = lhead;
 	struct ListNode* newhead2 = ghead;
 	while (cur != NULL)
@@ -248,8 +248,8 @@ struct ListNode* partition(struct ListNode* pHead, int x)
 	free(newhead);
 	return ret;
 }
-//¸øÄãÁ½¸öµ¥Á´±íµÄÍ·½Úµã headA ºÍ headB £¬ÇëÄãÕÒ³ö²¢·µ»ØÁ½¸öµ¥Á´±íÏà½»µÄÆğÊ¼½Úµã¡£Èç¹ûÁ½¸öÁ´±í²»´æÔÚÏà½»½Úµã£¬·µ»Ø null ¡£
-//Ë¼Â·£ºÏÈÍ¨¹ıÎ²½ÚµãÅĞ¶ÏÊÇ·ñÏà½»£¬²¢¼ÆËã³ö³¤¶È£¬Ïë°ì·¨ÈÃÁ½Õß´ÓÍ¬Ò»³¤¶È³ö·¢
+//ç»™ä½ ä¸¤ä¸ªå•é“¾è¡¨çš„å¤´èŠ‚ç‚¹ headA å’Œ headB ï¼Œè¯·ä½ æ‰¾å‡ºå¹¶è¿”å›ä¸¤ä¸ªå•é“¾è¡¨ç›¸äº¤çš„èµ·å§‹èŠ‚ç‚¹ã€‚å¦‚æœä¸¤ä¸ªé“¾è¡¨ä¸å­˜åœ¨ç›¸äº¤èŠ‚ç‚¹ï¼Œè¿”å› null ã€‚
+//æ€è·¯ï¼šå…ˆé€šè¿‡å°¾èŠ‚ç‚¹åˆ¤æ–­æ˜¯å¦ç›¸äº¤ï¼Œå¹¶è®¡ç®—å‡ºé•¿åº¦ï¼Œæƒ³åŠæ³•è®©ä¸¤è€…ä»åŒä¸€é•¿åº¦å‡ºå‘
 struct ListNode* getIntersectionNode(struct ListNode* headA, struct ListNode* headB)
 {
 	if (headA == NULL || headB == NULL)
@@ -298,7 +298,7 @@ struct ListNode* getIntersectionNode(struct ListNode* headA, struct ListNode* he
 		//	lhead = lhead->next;
 		//	ghead = ghead->next;
 		//}
-		//Õâ¶ÎÔÚ²¿·Ö±àÒëÆ÷ÅÜ²»¹ıÈÏÎªÓĞ²¿·Ö²»·µ»ØÖµ
+		//è¿™æ®µåœ¨éƒ¨åˆ†ç¼–è¯‘å™¨è·‘ä¸è¿‡è®¤ä¸ºæœ‰éƒ¨åˆ†ä¸è¿”å›å€¼
 		while (ghead != lhead)
 		{
 			lhead = lhead->next;
@@ -312,8 +312,8 @@ struct ListNode* getIntersectionNode(struct ListNode* headA, struct ListNode* he
 	} 
 }
 
-//¸øÄãÒ»¸öÁ´±íµÄÍ·½Úµã head £¬ÅĞ¶ÏÁ´±íÖĞÊÇ·ñÓĞ»·¡£
-//Ë¼Â·£º¿ìÂıÖ¸Õë
+//ç»™ä½ ä¸€ä¸ªé“¾è¡¨çš„å¤´èŠ‚ç‚¹ head ï¼Œåˆ¤æ–­é“¾è¡¨ä¸­æ˜¯å¦æœ‰ç¯ã€‚
+//æ€è·¯ï¼šå¿«æ…¢æŒ‡é’ˆ
 int hasCycle(struct ListNode* head)
 {
 	if (head == NULL)
@@ -330,4 +330,91 @@ int hasCycle(struct ListNode* head)
 		}
 	}
 	return 0;
+}
+//ç»™å®šä¸€ä¸ªé“¾è¡¨çš„å¤´èŠ‚ç‚¹  head ï¼Œè¿”å›é“¾è¡¨å¼€å§‹å…¥ç¯çš„ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ã€‚ å¦‚æœé“¾è¡¨æ— ç¯ï¼Œåˆ™è¿”å› nullã€‚
+//æ€è·¯ï¼šæ ¹æ®æ•°å­¦å»ºæ¨¡ï¼Œå¯çŸ¥ä»å¤´å¼€å§‹çš„æŒ‡é’ˆä¸ä»å¿«æ…¢æŒ‡é’ˆç›¸äº¤å¤„çš„æŒ‡é’ˆä¼šåœ¨å…¥å£å¤„ç›¸é‡
+//è®¾ç½®ä¸€ä¸ªå¿«æ…¢æŒ‡é’ˆslow:L(åœˆå¤–çš„é•¿åº¦)+X(ä»å…¥å£åˆ°ç›¸é‡å¤„)ï¼Œfast:L+NC(ç¯çš„å‘¨é•¿)+x
+//æ ¹æ®è¿™ä¸€ç‚¹ï¼Œä¹Ÿå¯ä»¥æŠŠç›¸äº¤å¤„åˆ‡å¼€ï¼Œå˜æˆç›¸äº¤é“¾è¡¨
+struct ListNode* detectCycle(struct ListNode* head)
+{
+	struct ListNode* slow = head;
+	struct ListNode* fast = head;
+	struct ListNode* meet = NULL;//å¿«æ…¢æŒ‡é’ˆç›¸äº¤å¤„çš„æŒ‡é’ˆ	
+	if (head == NULL)
+		return NULL;
+	while (fast != NULL && fast->next != NULL)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
+		{
+			meet = fast;
+			break;
+		}
+	}
+	if (fast == NULL || fast->next == NULL)
+		return NULL;
+	while (1)
+	{
+		if (meet == head)
+		{
+			return meet;
+		}
+		meet = meet->next;
+		head = head->next;
+	}
+}
+//ç»™ä½ ä¸€ä¸ªé•¿åº¦ä¸º n çš„é“¾è¡¨ï¼Œæ¯ä¸ªèŠ‚ç‚¹åŒ…å«ä¸€ä¸ªé¢å¤–å¢åŠ çš„éšæœºæŒ‡é’ˆ random ï¼Œè¯¥æŒ‡é’ˆå¯ä»¥æŒ‡å‘é“¾è¡¨ä¸­çš„ä»»ä½•èŠ‚ç‚¹æˆ–ç©ºèŠ‚ç‚¹ã€‚
+//æ„é€ è¿™ä¸ªé“¾è¡¨çš„Â æ·±æ‹·è´ã€‚Â æ·±æ‹·è´åº”è¯¥æ­£å¥½ç”± n ä¸ª å…¨æ–° èŠ‚ç‚¹ç»„æˆï¼Œå…¶ä¸­æ¯ä¸ªæ–°èŠ‚ç‚¹çš„å€¼éƒ½è®¾ä¸ºå…¶å¯¹åº”çš„åŸèŠ‚ç‚¹çš„å€¼ã€‚
+// æ–°èŠ‚ç‚¹çš„ next æŒ‡é’ˆå’Œ random æŒ‡é’ˆä¹Ÿéƒ½åº”æŒ‡å‘å¤åˆ¶é“¾è¡¨ä¸­çš„æ–°èŠ‚ç‚¹ï¼Œ
+//å¹¶ä½¿åŸé“¾è¡¨å’Œå¤åˆ¶é“¾è¡¨ä¸­çš„è¿™äº›æŒ‡é’ˆèƒ½å¤Ÿè¡¨ç¤ºç›¸åŒçš„é“¾è¡¨çŠ¶æ€ã€‚å¤åˆ¶é“¾è¡¨ä¸­çš„æŒ‡é’ˆéƒ½ä¸åº”æŒ‡å‘åŸé“¾è¡¨ä¸­çš„èŠ‚ç‚¹ ã€‚
+//åˆ†æï¼šåœ¨æ‹·è´é“¾è¡¨æ—¶æœ€å¤§çš„é—®é¢˜å°±æ˜¯æ•°æ®ç›¸å¯¹ç‹¬ç«‹æ€§ï¼Œä¹Ÿå°±æ˜¯è¯´æ•°æ®é—´çš„ç›¸å¯¹å…³ç³»ä¸æ˜¯é‚£ä¹ˆæ˜æœ—ï¼Œè€Œæœ¬é¢˜ä¸­æ°æ°éœ€è¦å…³æ³¨æ•°æ®
+//çš„ç›¸å¯¹å…³ç³»ï¼Œäºæ˜¯æˆ‘ä»¬å¯ä»¥é€šè¿‡æŠŠæ‹·è´çš„æ•°æ®æ”¾åœ¨åŸèŠ‚ç‚¹åçš„ï¼Œæ¥ä¿è¯ç›¸å¯¹å…³ç³»çš„å®Œæ•´
+
+struct Node* copyRandomList(struct Node* head)
+{
+	if (head == NULL)
+		return NULL;
+	struct Node* cur = head;
+
+	//æ‹·è´çš„æ•°æ®æ”¾åœ¨åŸèŠ‚ç‚¹åçš„
+	while (cur)
+	{
+		struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+		struct Node* pre = cur;
+		struct Node* next = cur->next;
+		temp->next = next;
+		temp->val = pre->val;
+		pre->next = temp;
+		cur = next;
+		
+	}
+	//é“¾æ¥éšæœºå…³ç³»,å¹¶åˆ é™¤åŸèŠ‚ç‚¹
+	 cur = head;
+	 struct Node* next = head->next;
+	 struct Node* pre = head;
+
+	while (cur)
+	{
+		//é“¾æ¥éšæœºå…³ç³»
+		if (cur->random != NULL)
+			cur->next->random = cur->random->next;
+		else
+			cur->next->random = NULL;
+		//å¹¶åˆ é™¤åŸèŠ‚ç‚¹
+		
+		if (head == cur)
+		{
+			head = next;
+		}
+		else
+		{
+			pre->next = next;
+		}
+		pre = next;
+		cur = next->next;
+		if (cur!=NULL)
+		next = cur->next;
+	}
+	return head;
 }
